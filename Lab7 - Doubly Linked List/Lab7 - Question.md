@@ -10,7 +10,8 @@ A. Write a C++ menu-driven program to implement List ADT using a doubly linked l
     6. Delete Position
     7. Search
     8. Display
-    9. Exit
+    9. Display Reverse
+    10. Exit
 
   What is the time complexity of each of the operations?
 
