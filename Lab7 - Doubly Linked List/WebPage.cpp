@@ -1,37 +1,31 @@
-#include<stdio.h>
-#include<stdlib.h>
-
+#include<iostream>
 #include "WebPage.h"
+
+using namespace std;
 
 void menu();
 
 int main(){
     list l;            // creating a list object (instance of "class: <list>")
-
     int choice;
-
     do{
-
         menu();
-        printf("Enter choice: ");
-        scanf("%d", &choice);
+        cout << "Enter choice: ";
+        cin >> choice;
         
         switch(choice){
-
             case 1:
                 {
                     int num;
-                    printf("\nEnter WebPage Title (integer): ");
-                    scanf("%d", &num);
-
+                    cout << "\nEnter WebPage Title (integer): ";
+                    cin >> num;
                     bool result = l.insertPage(num);
-
                     if (result){
-                        printf("\nWebpage Inserted Successfully.");
+                        cout << "\nWebpage Inserted Successfully.";
                         l.displayCurrentPage();
                     }
                     else{
-                        printf("Couldn't insert WebPage.");
+                        cout << "Couldn't insert WebPage.";
                     }
                     
                     break;
@@ -39,31 +33,27 @@ int main(){
             case 2:
                 {
                     bool result = l.front();
-
                     if (result){
-                        printf("\nMoved Front Successfully.");
+                        cout << "\nMoved Front Successfully.";
                         l.displayCurrentPage();
                     }
                     
                     else{
-                        printf("Cannot move Front.");
+                        cout << "Cannot move Front.";
                     }
-
                     break;
                 }
             case 3:
                 {
                     bool result = l.back();
-
                     if (result){
-                        printf("\nMoved Back Successfully.");
+                        cout << "\nMoved Back Successfully.";
                         l.displayCurrentPage();
                     }
                     
                     else{
-                        printf("Cannot move Back.");
+                        cout << "Cannot move Back.";
                     }
-
                     break;
                 }
             case 4:
@@ -71,14 +61,13 @@ int main(){
                     l.displayAllPages();
                     break;
                 }
-
             case 5:
                 {
-                    printf("\nExiting Program.");
+                    cout << "\nExiting Program.";
                     break;
                 }
             default:
-                printf("\nInvalid Choice.");
+                cout << "\nInvalid Choice.";
         }
     }
     while(choice!=5);
@@ -87,13 +76,10 @@ int main(){
 }
 
 void menu(){
-    printf("\n\n----Browser Tab Navigation Implementation----\n");
-    printf("1 - Insert WebPage\n");
-    printf("2 - Move Front\n");
-    printf("3 - Move Back\n");
-    printf("4 - Display all Pages\n");
-    printf("5 - Exit\n\n");
+    cout << "\n\n----Browser Tab Navigation Implementation----\n";
+    cout << "1 - Insert WebPage\n";
+    cout << "2 - Move Front\n";
+    cout << "3 - Move Back\n";
+    cout << "4 - Display all Pages\n";
+    cout << "5 - Exit\n\n";
 }
-
-
-
