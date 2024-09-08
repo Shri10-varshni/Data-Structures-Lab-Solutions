@@ -1,8 +1,9 @@
 #ifndef WEBPAGE_H
 
-#include<stdio.h>
-#include<stdlib.h>
+#include<iostream>
+using namespace std;
 
+// Class for Doubly Linked List ADT
 class list
 {
     struct node
@@ -46,7 +47,7 @@ class list
 */
 bool list::front(){
     if (head == nullptr){
-        printf("\nEmpty Browser Tab. ");
+        cout << "\nEmpty Browser Tab. ";
         return false;
     }
     else if (current->next != nullptr){
@@ -55,7 +56,7 @@ bool list::front(){
     }
 
     else{
-        printf("\nYou have already reached the Last Page. ");
+        cout << "\nYou have already reached the Last Page. ";
         return false;
     }
 
@@ -72,7 +73,7 @@ bool list::front(){
 */
 bool list::back(){
     if (head == nullptr){
-        printf("\nEmpty Browser Tab. ");
+        cout << "\nEmpty Browser Tab. ";
         return false;
     }
     else if (current->prev != nullptr){
@@ -81,7 +82,7 @@ bool list::back(){
     }
 
     else{
-        printf("\nYou have reached the Last Page. ");
+        cout << "\nYou have reached the Last Page. ";
         return false;
     }
 }
@@ -91,7 +92,7 @@ bool list::back(){
     Return type: void
 */
 void list::displayCurrentPage(){
-    printf("Current Page: %d", current->data);
+    cout << "\nCurrent Page: " << current->data;
 }
 
 /*Displays all the Valid Pages
@@ -104,16 +105,16 @@ void list::displayAllPages(){
     temp = head;
 
     if(temp == nullptr){
-        printf("\nEmpty Browser Tab.");
+        cout << "\nEmpty Browser Tab. ";
     }
     
     else{
-        printf("\nPages in Browser Tab: ");
+        cout << "\nPages in Browser Tab: ";
         while(temp != nullptr){
-            printf("%d -> ", temp->data);
+            cout << temp->data << " -> ";
             temp = temp->next;
         }
-        printf("End");
+        cout << "End";
     }
 }
 
@@ -131,11 +132,11 @@ void list::displayAllPages(){
 */
 bool list::insertPage(int num) {
 
-    struct node *newnode = (struct node*)malloc(sizeof(struct node));   // Memory allocation for NewNode to be inserted
+    struct node *newnode = new node;   // Memory allocation for NewNode to be inserted
 
     // Memory allocation Check
     if (newnode == nullptr) {
-        printf("\nMemory allocation failed. ");
+        cout << "\nMemory allocation failed. ";
         return false;
     }
 
@@ -176,7 +177,7 @@ void list::deleterest(){
     while(temp!=nullptr){
         struct node *deletePage = temp;
         temp = temp->next;
-        free(deletePage);
+        delete deletePage;
     }
 }
 
