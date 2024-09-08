@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include<iostream>
+using namespace std;
 
 // Assumption - The list doesn't hold the value -1;
 
@@ -50,20 +50,20 @@ int main(){
 
     do{
 
-        printf("\n\nEnter choice: ");
-        scanf("%d", &choice);
+        cout << "\n\nEnter choice: ";
+        cin >> choice;
         
         switch(choice){
 
             case 1:
                 {
                     int num;
-                    printf("\nEnter number: ");
-                    scanf("%d", &num);
+                    cout << "\nEnter number: ";
+                    cin >> num;
 
                     l.insertBeginning(num);
                     
-                    printf("Element Inserted in the Beginning successfully.\nYour updated list: ");
+                    cout << "Element Inserted in the Beginning successfully.\nYour updated list: ";
                     l.display();
     
                     break;
@@ -71,12 +71,12 @@ int main(){
             case 2:
                 {
                     int num;
-                    printf("\nEnter number: ");
-                    scanf("%d", &num);
+                    cout << "\nEnter number: ";
+                    cin >> num;
 
                     l.insertEnd(num);
                     
-                    printf("Element Inserted in the End successfully.\nYour updated list: ");
+                    cout << "Element Inserted in the End successfully.\nYour updated list: ";
                     l.display();
     
                     break;
@@ -84,26 +84,26 @@ int main(){
             case 3:
                 {
                     int pos;
-                    printf("\nEnter position: ");
-                    scanf("%d", &pos);
+                    cout << "\nEnter position: ";
+                    cin >> pos;
 
                     if (pos<0){
-                        printf("Invalid Position. Position must be a non-negative integer.");
+                        cout << "Invalid Position. Position must be a non-negative integer.";
                         break;
                     }
 
                     int num;
-                    printf("\nEnter number: ");
-                    scanf("%d", &num);
+                    cout << "\nEnter number: ";
+                    cin >> num;
 
                     bool result = l.insertPos(num, pos);
 
                     if (result){
-                        printf("Element Inserted at position %d successfully.\nYour updated list: ", pos);
+                        cout << "Element Inserted at position " << pos << " successfully.\nYour updated list: ";
                         l.display();
                     }
                     else{
-                        printf("Insertion Unsuccessful.");
+                        cout << "Insertion Unsuccessful.";
                     }
 
                     break;
@@ -113,11 +113,11 @@ int main(){
                     int result = l.deleteBeginning();
 
                     if (result!=-1){
-                        printf("Element in the beginning deleted successfully.\nDeleted element: %d\nYour updated list: ", result);
+                        cout << "Element in the beginning deleted successfully.\nDeleted element: " << result << "\nYour updated list: ";
                         l.display();
                     }
                     else{
-                        printf("Deletion Unsuccessful.");
+                        cout << "Deletion Unsuccessful.";
                     }
 
                     break;
@@ -127,11 +127,11 @@ int main(){
                     int result = l.deleteEnd();
 
                     if (result!=-1){
-                        printf("Element in the End deleted successfully.\nDeleted element: %d\nYour updated list: ", result);
+                        cout << "Element in the End deleted successfully.\nDeleted element: " << result << "\nYour updated list: ";
                         l.display();
                     }
                     else{
-                        printf("Deletion Unsuccessful.");
+                        cout << "Deletion Unsuccessful.";
                     }
 
                     break;
@@ -139,22 +139,22 @@ int main(){
             case 6:
                 {
                     int pos;
-                    printf("\nEnter position: ");
-                    scanf("%d", &pos);
+                    cout << "\nEnter position: ";
+                    cin >> pos;
 
                     if (pos<0){
-                        printf("Invalid Position. Position must be non-negative.");
+                        cout << "Invalid Position. Position must be non-negative.";
                         break;
                     }
 
                     int result = l.deletePos(pos);
 
                     if (result != -1){
-                        printf("Element at position %d has beeen deleted successfully.\nDeleted Element: %d\nYour updated list: ", pos, result);
+                        cout << "Element at position " << pos << " has beeen deleted successfully.\nDeleted Element: " << result << "\nYour updated list: ";
                         l.display();
                     }
                     else{
-                        printf("Deletion Unsuccessful.");
+                        cout << "Deletion Unsuccessful.";
                     }
 
                     break;
@@ -162,17 +162,17 @@ int main(){
             case 7:
                 {
                     int element;
-                    printf("\nEnter element: ");
-                    scanf("%d", &element);
+                    cout << "\nEnter element: ";
+                    cin >> element;
                     
                     int index = l.search(element);
                     
                     if (index != -1){
-                        printf("The element is found at the index %d\n", index);
+                        cout << "The element is found at the index " << index << "\n";
                     }
                     
                     else{
-                        printf("Element not found.");
+                        cout << "Element not found.";
                     }
                     
                     break;
@@ -189,11 +189,11 @@ int main(){
                 }
             case 10:
                 {
-                    printf("Exiting Program.");
+                    cout << "Exiting Program.";
                     break;
                 }
             default:
-                printf("Invalid Choice.\n");
+                cout << "Invalid Choice.\n";
         }
     }
     while(choice!=10);
@@ -206,17 +206,17 @@ int main(){
     Return type: void
 */
 void menu(){
-    printf("\n\n----Doubly Linked List ADT Implementation----\n\n");
-    printf("1 - Insert in Beginning\n");
-    printf("2 - Insert in End\n");
-    printf("3 - Insert at a position\n");
-    printf("4 - Delete in Beginning\n");
-    printf("5 - Delete in End\n");
-    printf("6 - Delete at a position\n");
-    printf("7 - Search Element\n");
-    printf("8 - Display\n");
-    printf("9 - Display Reverse\n");
-    printf("10 - Exit\n\n");
+    cout << "\n\n----Doubly Linked List ADT Implementation----\n\n";
+    cout << "1 - Insert in Beginning\n";
+    cout << "2 - Insert in End\n";
+    cout << "3 - Insert at a position\n";
+    cout << "4 - Delete in Beginning\n";
+    cout << "5 - Delete in End\n";
+    cout << "6 - Delete at a position\n";
+    cout << "7 - Search Element\n";
+    cout << "8 - Display\n";
+    cout << "9 - Display Reverse\n";
+    cout << "10 - Exit\n\n";
 }
 
 /* Displays the Doubly linked list in the forward direction
@@ -230,15 +230,15 @@ void list::display(){
     temp = head;
 
     if(temp == nullptr){
-        printf("Empty Doubly Linked List.\n");
+        cout << "Empty Doubly Linked List.\n";
     }
     
     else{
         while(temp != nullptr){
-            printf("%d -> ", temp->data);
+            cout << temp->data << " -> ";
             temp = temp->next;
         }
-        printf("NULL\n");
+        cout << "NULL\n";
     }
 }
 
@@ -248,11 +248,11 @@ void list::display(){
 */
 void list::insertBeginning(int num){
 
-    struct node *newnode = (struct node*)malloc(sizeof(struct node));   // Memory allocation for NewNode to be inserted
+    struct node *newnode = new node;   // Memory allocation for NewNode to be inserted
     
     // Memory allocation Check
     if (newnode == nullptr) {
-        printf("Memory allocation failed.\n");
+        cout << "Memory allocation failed.\n";
         return;
     }
 
@@ -287,11 +287,11 @@ void list::insertBeginning(int num){
 */
 void list::insertEnd(int num){
 
-    struct node *newnode = (struct node*)malloc(sizeof(struct node));   // Memory allocation for NewNode to be inserted
+    struct node *newnode = new node;   // Memory allocation for NewNode to be inserted
 
     // Memory allocation Check
     if (newnode == nullptr) {
-        printf("Memory allocation failed.\n");
+        cout << "Memory allocation failed.\n";
         return;
     }
 
@@ -327,11 +327,11 @@ void list::insertEnd(int num){
 */
 bool list::insertPos(int num, int pos) {
 
-    struct node *newnode = (struct node*)malloc(sizeof(struct node));   // Memory allocation for NewNode to be inserted
+    struct node *newnode = new node;   // Memory allocation for NewNode to be inserted
 
     // Memory allocation Check
     if (newnode == nullptr) {
-        printf("Memory allocation failed.\n");
+        cout << "Memory allocation failed.\n";
         return false;
     }
 
@@ -345,7 +345,7 @@ bool list::insertPos(int num, int pos) {
 
     // Boundary condition - Trying to insert at an invalid position in an Empty list
     else if( pos != 0 && head == nullptr){
-        printf("Position out of bounds. ");         // Error message
+        cout << "Position out of bounds. ";         // Error message
         return false;
     }
     
@@ -362,7 +362,7 @@ bool list::insertPos(int num, int pos) {
         
         // Boundary Condition - Insertion of element in an invalid position (pos > sizeoflist)
         if (index<pos) {
-            printf("Position out of bounds. ");      // Error message
+            cout << "Position out of bounds. ";      // Error message
             return false;
         }
 
@@ -394,8 +394,8 @@ bool list::insertPos(int num, int pos) {
 int list::deleteBeginning(){
 
     // Boundary condition - Empty List
-    if (head == NULL){
-        printf("Empty Doubly Linked List. ");
+    if (head == nullptr){
+        cout << "Empty Doubly Linked List. ";
         return -1;
     }
 
@@ -404,7 +404,7 @@ int list::deleteBeginning(){
         
         int deletedNum = head->data;
 
-        free(head);          // Deletion by freeing the memory of Deleted Node
+        delete head;          // Deletion by freeing the memory of Deleted Node
 
         // Empty List conditions
         head = nullptr;
@@ -421,7 +421,7 @@ int list::deleteBeginning(){
         head = head->next;          // Head needs to point to the new First Node since the deletion occurs in the beginning
         head->prev = nullptr;       // Reverse Link Condition for Head
         
-        free(deleteNode);           // Deletion by freeing the memory of Deleted Node
+        delete deleteNode;           // Deletion by freeing the memory of Deleted Node
 
         return deletedNum;
     }
@@ -438,8 +438,8 @@ int list::deleteBeginning(){
 int list::deleteEnd(){
     
     // Boundary condition - Empty List
-    if (head == NULL){
-        printf("Empty Doubly Linked List. ");
+    if (head == nullptr){
+        cout << "Empty Doubly Linked List. ";
         return -1;
     }
 
@@ -448,7 +448,7 @@ int list::deleteEnd(){
 
         int deletedNum = tail->data;
 
-        free(tail);           // Deletion by freeing the memory of Deleted Node
+        delete tail;           // Deletion by freeing the memory of Deleted Node
 
         // Empty List conditions
         head = nullptr;
@@ -466,7 +466,7 @@ int list::deleteEnd(){
         tail = tail->prev;      // Tail needs to point to the new Last Node since the deletion occurs in the End
         tail->next = nullptr;   // Forward Link Condition for Tail
         
-        free(deleteNode);       // Deletion by freeing the memory of Deleted Node
+        delete deleteNode;       // Deletion by freeing the memory of Deleted Node
 
         return deletedNum;
     } 
@@ -486,9 +486,9 @@ int list::deleteEnd(){
 int list::deletePos(int pos) {
 
     // Boundary Condition - Empty List
-    if (head == NULL) {
+    if (head == nullptr) {
 
-        printf("Empty Doubly Linked List. ");
+        cout << "Empty Doubly Linked List. ";
         return -1;
     }
 
@@ -509,7 +509,7 @@ int list::deletePos(int pos) {
     
     // Boundary Condition - Deletion of element in an invalid position (pos > sizeoflist)
     if (index<pos) {
-        printf("Position out of bounds. ");      // Error message
+        cout << "Position out of bounds. ";      // Error message
         return -1;
     }
 
@@ -524,7 +524,7 @@ int list::deletePos(int pos) {
     current->prev->next = current->next;    // Forward Link Condition
     current->next->prev = current->prev;    // Reverse Link Condition
     
-    free(current);
+    delete current;
     
     return deletedNum;
 }
@@ -540,7 +540,7 @@ int list::search(int element){
 
     // Boundary Condition - Empty List
     if (head == nullptr) { 
-        printf("Empty Doubly Linked List. ");
+        cout << "Empty Doubly Linked List. ";
         return -1;
     }
 
@@ -573,14 +573,14 @@ void list::displayReverse(){
     temp = tail;
     
     if(temp == nullptr){
-        printf("Empty Doubly Linked List.\n");
+        cout << "Empty Doubly Linked List.\n";
     }
     
     else{
         while(temp != nullptr){
-            printf("%d -> ", temp->data);
+            cout << temp->data << " -> ";
             temp = temp->prev;
         }
-        printf("NULL\n");
+        cout << "nullptr\n";
     }
 }
