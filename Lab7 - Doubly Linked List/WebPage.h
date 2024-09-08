@@ -14,7 +14,7 @@ class list
     };
 
     private:
-        void deleterest();
+        void deleterest();           // Time Complexity: O(n)
 
     // Head (Points to the First Node) & Tail (Points to the Last Node)
     struct node *head, *current;
@@ -26,13 +26,13 @@ class list
             current = head;
         }
 
-        void displayCurrentPage();
-        void displayAllPages();
+        void displayCurrentPage();    // Time Complexity: O(1)
+        void displayAllPages();       // Time Complexity: O(n)
 
-        bool front();
-        bool back();
+        bool front();                 // Time Complexity: O(1)
+        bool back();                  // Time Complexity: O(1)
         
-        bool insertPage(int);
+        bool insertPage(int);         // Time Complexity: O(n)
 
 };
 
